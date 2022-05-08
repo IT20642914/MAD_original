@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.cake_house">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,6 +11,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Cake_house">
+        <activity
+            android:name=".BuyerViewSeller"
+            android:exported="false" />
+        <activity
+            android:name=".updateseller"
+            android:exported="false" />
+        <activity
+            android:name=".myselling"
+            android:exported="false" />
+        <activity
+            android:name=".CustomOrder"
+            android:exported="false" />
+        <activity
+            android:name=".sellerprofile"
+            android:exported="false" />
         <activity
             android:name=".Buyer_Login"
             android:exported="false" />
