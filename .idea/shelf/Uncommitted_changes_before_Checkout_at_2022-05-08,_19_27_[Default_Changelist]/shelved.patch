@@ -1,0 +1,1163 @@
+Index: app/src/main/res/drawable/inputbox.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/drawable/inputbox.xml b/app/src/main/res/drawable/inputbox.xml
+new file mode 100644
+--- /dev/null	(date 1652000687108)
++++ b/app/src/main/res/drawable/inputbox.xml	(date 1652000687108)
+@@ -0,0 +1,8 @@
++<?xml version="1.0" encoding="utf-8"?>
++<shape xmlns:android="http://schemas.android.com/apk/res/android">
++
++    <corners android:radius="25sp" />
++    <solid android:color="@color/white"/>
++    <stroke android:color="#FFDDE2" android:width="2dp"/>
++
++</shape>
+\ No newline at end of file
+Index: app/src/main/res/drawable/box.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/drawable/box.xml b/app/src/main/res/drawable/box.xml
+new file mode 100644
+--- /dev/null	(date 1652000623442)
++++ b/app/src/main/res/drawable/box.xml	(date 1652000623442)
+@@ -0,0 +1,7 @@
++<?xml version="1.0" encoding="utf-8"?>
++<shape xmlns:android="http://schemas.android.com/apk/res/android">
++    <solid android:color="#FFDDE2"/>
++    <stroke android:width="3dp" android:color="#B1BCBE" />
++    <corners android:radius="30dp"/>
++    <padding android:left="0dp" android:top="0dp" android:right="0dp" android:bottom="0dp" />
++</shape>
+\ No newline at end of file
+Index: build.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>// Top-level build file where you can add configuration options common to all sub-projects/modules.\nplugins {\n    id 'com.android.application' version '7.1.2' apply false\n    id 'com.android.library' version '7.1.2' apply false\n}\n\ntask clean(type: Delete) {\n    delete rootProject.buildDir\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/build.gradle b/build.gradle
+--- a/build.gradle	(revision 0e856b5037a6e56dead0b41c50b89f30241fc868)
++++ b/build.gradle	(date 1652014509659)
+@@ -1,7 +1,11 @@
+-// Top-level build file where you can add configuration options common to all sub-projects/modules.
++buildscript {
++    dependencies {
++        classpath 'com.google.gms:google-services:4.3.10'
++    }
++}// Top-level build file where you can add configuration options common to all sub-projects/modules.
+ plugins {
+-    id 'com.android.application' version '7.1.2' apply false
+-    id 'com.android.library' version '7.1.2' apply false
++    id 'com.android.application' version '7.1.3' apply false
++    id 'com.android.library' version '7.1.3' apply false
+ }
+ 
+ task clean(type: Delete) {
+Index: app/src/main/java/com/example/cake_house/postActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/cake_house/postActivity.java b/app/src/main/java/com/example/cake_house/postActivity.java
+new file mode 100644
+--- /dev/null	(date 1652000494504)
++++ b/app/src/main/java/com/example/cake_house/postActivity.java	(date 1652000494504)
+@@ -0,0 +1,66 @@
++package com.example.cake_house;
++
++import androidx.annotation.Nullable;
++import androidx.appcompat.app.AppCompatActivity;
++
++import android.app.Activity;
++import android.content.Intent;
++import android.net.Uri;
++import android.os.Bundle;
++import android.provider.MediaStore;
++import android.view.View;
++import android.widget.Button;
++import android.widget.ImageView;
++
++import com.example.cake_house.R;
++
++public class postActivity extends AppCompatActivity {
++
++    private Button addimagebtn;
++    private ImageView postImageview;
++    public Uri imageUri;
++    private Button createbtn;
++
++    @Override
++    protected void onCreate(Bundle savedInstanceState) {
++        super.onCreate(savedInstanceState);
++        setContentView(R.layout.activity_post);
++
++        addimagebtn = findViewById(R.id.addimagebtn);
++        postImageview = findViewById(R.id.postImageview);
++
++        addimagebtn.setOnClickListener(new View.OnClickListener() {
++            @Override
++            public void onClick(View view) {
++                Intent openGalleryIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
++                startActivityForResult(openGalleryIntent, 1);
++            }
++
++
++        });
++
++        createbtn = findViewById(R.id.createbtn);
++
++        createbtn.setOnClickListener(new View.OnClickListener() {
++            @Override
++            public void onClick(View v) {
++                Intent intent = new Intent(postActivity.this,home.class);
++                startActivity(intent);
++            }
++        });
++
++    }
++
++    @Override
++    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
++        super.onActivityResult(requestCode, resultCode, data);
++        if (requestCode == 1) {
++            if (resultCode == Activity.RESULT_OK) {
++                Uri imageUri = data.getData();
++                postImageview.setImageURI(imageUri);
++            }
++
++        }
++    }
++
++}
+\ No newline at end of file
+Index: app/src/main/java/com/example/cake_house/home.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/cake_house/home.java b/app/src/main/java/com/example/cake_house/home.java
+new file mode 100644
+--- /dev/null	(date 1651998384449)
++++ b/app/src/main/java/com/example/cake_house/home.java	(date 1651998384449)
+@@ -0,0 +1,14 @@
++package com.example.cake_house;
++
++import androidx.appcompat.app.AppCompatActivity;
++
++import android.os.Bundle;
++
++public class home extends AppCompatActivity {
++
++    @Override
++    protected void onCreate(Bundle savedInstanceState) {
++        super.onCreate(savedInstanceState);
++        setContentView(R.layout.activity_home);
++    }
++}
+\ No newline at end of file
+Index: app/src/main/res/layout/activity_post.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/activity_post.xml b/app/src/main/res/layout/activity_post.xml
+new file mode 100644
+--- /dev/null	(date 1652001882153)
++++ b/app/src/main/res/layout/activity_post.xml	(date 1652001882153)
+@@ -0,0 +1,235 @@
++<?xml version="1.0" encoding="utf-8"?>
++<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    xmlns:tools="http://schemas.android.com/tools"
++    android:layout_width="match_parent"
++    android:layout_height="wrap_content"
++    tools:layout_editor_absoluteX="1dp"
++    tools:layout_editor_absoluteY="47dp">
++
++    <androidx.constraintlayout.widget.ConstraintLayout
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        tools:context=".postActivity">
++
++
++        <LinearLayout
++            android:id="@+id/linearLayout"
++            android:layout_width="376dp"
++            android:layout_height="830dp"
++            android:background="@drawable/box"
++            android:orientation="horizontal"
++            app:layout_constraintBottom_toBottomOf="parent"
++            app:layout_constraintEnd_toEndOf="parent"
++            app:layout_constraintStart_toStartOf="parent"
++            app:layout_constraintTop_toTopOf="parent">
++
++
++        </LinearLayout>
++
++        <TextView
++            android:id="@+id/textView5"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:layout_marginTop="8dp"
++            android:text="Create Post"
++            android:textStyle="bold"
++            android:textColor="#000000"
++            android:textSize="28dp"
++            app:layout_constraintEnd_toEndOf="parent"
++            app:layout_constraintHorizontal_bias="0.09"
++            app:layout_constraintStart_toStartOf="parent"
++            app:layout_constraintTop_toTopOf="parent" />
++
++        <EditText
++            android:id="@+id/editTextTextPersonName"
++            android:layout_width="334dp"
++            android:layout_height="40dp"
++            android:ems="10"
++            android:inputType="textPersonName"
++            android:textSize="16dp"
++            android:background="@drawable/inputbox"
++            app:layout_constraintEnd_toEndOf="parent"
++            app:layout_constraintHorizontal_bias="0.493"
++            app:layout_constraintStart_toStartOf="parent"
++            app:layout_constraintTop_toBottomOf="@+id/textView8"
++            tools:ignore="MissingConstraints,SpeakableTextPresentCheck" />
++
++        <TextView
++            android:id="@+id/textView8"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:layout_marginTop="48dp"
++            android:layout_weight="1"
++            android:text="Cake name"
++            android:textColor="#000000"
++            android:textSize="18dp"
++            app:layout_constraintEnd_toEndOf="parent"
++            app:layout_constraintHorizontal_bias="0.118"
++            app:layout_constraintStart_toStartOf="parent"
++            app:layout_constraintTop_toBottomOf="@+id/textView5"
++            tools:ignore="MissingConstraints" />
++
++        <TextView
++            android:id="@+id/textView9"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:layout_marginTop="12dp"
++            android:layout_weight="1"
++            android:text="Cake Type"
++            android:textColor="#000000"
++            android:textSize="18dp"
++            app:layout_constraintEnd_toEndOf="parent"
++            app:layout_constraintHorizontal_bias="0.115"
++            app:layout_constraintStart_toStartOf="parent"
++            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName"
++            tools:ignore="MissingConstraints" />
++
++        <EditText
++            android:id="@+id/editTextTextPersonName3"
++            android:layout_width="334dp"
++            android:layout_height="40dp"
++            android:ems="10"
++            android:inputType="textPersonName"
++            android:textSize="16dp"
++            android:background="@drawable/inputbox"
++            app:layout_constraintEnd_toEndOf="parent"
++            app:layout_constraintHorizontal_bias="0.493"
++            app:layout_constraintStart_toStartOf="parent"
++            app:layout_constraintTop_toBottomOf="@+id/textView9"
++            tools:ignore="MissingConstraints" />
++
++        <EditText
++            android:id="@+id/editTextNumberDecimal"
++            android:layout_width="334dp"
++            android:layout_height="40dp"
++            android:ems="10"
++            android:background="@drawable/inputbox"
++            android:inputType="numberDecimal"
++            app:layout_constraintEnd_toEndOf="parent"
++            app:layout_constraintHorizontal_bias="0.493"
++            app:layout_constraintStart_toStartOf="parent"
++            app:layout_constraintTop_toBottomOf="@+id/textView10"
++            tools:ignore="MissingConstraints" />
++
++        <TextView
++            android:id="@+id/textView11"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:layout_marginTop="12dp"
++            android:layout_weight="1"
++            android:text="Flavours"
++            android:textColor="#000000"
++            android:textSize="18dp"
++            app:layout_constraintEnd_toEndOf="parent"
++            app:layout_constraintHorizontal_bias="0.11"
++            app:layout_constraintStart_toStartOf="parent"
++            app:layout_constraintTop_toBottomOf="@+id/editTextNumberDecimal"
++            tools:ignore="MissingConstraints" />
++
++        <EditText
++            android:id="@+id/editTextTextPersonName4"
++            android:layout_width="334dp"
++            android:layout_height="40dp"
++            android:ems="10"
++            android:inputType="textPersonName"
++            android:textSize="16dp"
++            android:background="@drawable/inputbox"
++            app:layout_constraintEnd_toEndOf="parent"
++            app:layout_constraintHorizontal_bias="0.493"
++            app:layout_constraintStart_toStartOf="parent"
++            app:layout_constraintTop_toBottomOf="@+id/textView11"
++            tools:ignore="MissingConstraints" />
++
++        <TextView
++            android:id="@+id/textView12"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:layout_marginTop="12dp"
++            android:layout_weight="1"
++            android:text="Description"
++            android:textColor="#000000"
++            android:textSize="18dp"
++            app:layout_constraintEnd_toEndOf="parent"
++            app:layout_constraintHorizontal_bias="0.118"
++            app:layout_constraintStart_toStartOf="parent"
++            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName4"
++            tools:ignore="MissingConstraints" />
++
++        <TextView
++            android:id="@+id/textView10"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:layout_marginTop="12dp"
++            android:layout_weight="1"
++            android:text="Price (kg)"
++            android:textColor="#000000"
++            android:textSize="18dp"
++            app:layout_constraintEnd_toEndOf="parent"
++            app:layout_constraintHorizontal_bias="0.113"
++            app:layout_constraintStart_toStartOf="parent"
++            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName3"
++            tools:ignore="MissingConstraints" />
++
++        <EditText
++            android:id="@+id/editTextTextMultiLine"
++            android:layout_width="334dp"
++            android:layout_height="60dp"
++            android:ems="10"
++            android:background="@drawable/inputbox"
++            android:gravity="start|top"
++            android:inputType="textMultiLine"
++            app:layout_constraintEnd_toEndOf="parent"
++            app:layout_constraintStart_toStartOf="parent"
++            app:layout_constraintTop_toBottomOf="@+id/textView12" />
++
++        <Button
++            android:id="@+id/addimagebtn"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:layout_marginTop="8dp"
++            android:backgroundTint="#DB81FB"
++            android:text="Add Image"
++            app:cornerRadius="15dp"
++            app:layout_constraintEnd_toEndOf="parent"
++            app:layout_constraintHorizontal_bias="0.85"
++            app:layout_constraintStart_toStartOf="parent"
++            app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine" />
++
++        <ImageView
++            android:id="@+id/postImageview"
++            android:layout_width="330dp"
++            android:layout_height="330dp"
++            android:layout_marginTop="8dp"
++            android:scaleType="fitXY"
++            app:layout_constraintEnd_toEndOf="parent"
++            app:layout_constraintStart_toStartOf="parent"
++            app:layout_constraintTop_toBottomOf="@+id/addimagebtn"
++            tools:srcCompat="@tools:sample/avatars" />
++
++        <Button
++            android:id="@+id/createbtn"
++            android:layout_width="233dp"
++            android:layout_height="64dp"
++            android:layout_marginTop="24dp"
++            android:backgroundTint="#E470D1"
++            android:onClick="openMain"
++            android:text="Post"
++            android:textColorLink="#EF0202"
++            android:textSize="20dp"
++            app:cornerRadius="30dp"
++            app:layout_constraintBottom_toBottomOf="parent"
++            app:layout_constraintEnd_toEndOf="parent"
++            app:layout_constraintStart_toStartOf="parent"
++            app:layout_constraintTop_toBottomOf="@+id/postImageview"
++            app:layout_constraintVertical_bias="0.992"
++            tools:ignore="OnClick" />
++
++
++
++
++
++
++    </androidx.constraintlayout.widget.ConstraintLayout>
++
++</ScrollView>
+\ No newline at end of file
+Index: app/src/main/java/com/example/cake_house/Buyer_registation.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.cake_house;\n\nimport androidx.appcompat.app.AppCompatActivity;\n\nimport android.os.Bundle;\n\npublic class Buyer_registation extends AppCompatActivity {\n\n    @Override\n    protected void onCreate(Bundle savedInstanceState) {\n        super.onCreate(savedInstanceState);\n        setContentView(R.layout.activity_buyer_registation);\n    }\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/cake_house/Buyer_registation.java b/app/src/main/java/com/example/cake_house/Buyer_registation.java
+--- a/app/src/main/java/com/example/cake_house/Buyer_registation.java	(revision 0e856b5037a6e56dead0b41c50b89f30241fc868)
++++ b/app/src/main/java/com/example/cake_house/Buyer_registation.java	(date 1652008273651)
+@@ -2,7 +2,10 @@
+ 
+ import androidx.appcompat.app.AppCompatActivity;
+ 
++import android.content.Intent;
+ import android.os.Bundle;
++import android.view.View;
++import android.widget.Button;
+ 
+ public class Buyer_registation extends AppCompatActivity {
+ 
+@@ -10,5 +13,19 @@
+     protected void onCreate(Bundle savedInstanceState) {
+         super.onCreate(savedInstanceState);
+         setContentView(R.layout.activity_buyer_registation);
++
++        Button button = (Button) findViewById(R.id.signinbtnBuyer);
++
++        button.setOnClickListener(new View.OnClickListener() {
++
++            @Override
++
++
++            public void onClick(View v) {
++
++                Intent intent = new Intent(Buyer_registation.this, cakeViewActivity.class);
++                startActivity(intent);
++            }
++        });
+     }
+ }
+\ No newline at end of file
+Index: app/src/main/java/com/example/cake_house/homeAdapter.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/cake_house/homeAdapter.java b/app/src/main/java/com/example/cake_house/homeAdapter.java
+new file mode 100644
+--- /dev/null	(date 1652013827480)
++++ b/app/src/main/java/com/example/cake_house/homeAdapter.java	(date 1652013827480)
+@@ -0,0 +1,56 @@
++package com.example.cake_house;
++
++
++import android.content.Context;
++import android.view.LayoutInflater;
++import android.view.View;
++import android.view.ViewGroup;
++import android.widget.ImageView;
++import android.widget.TextView;
++
++import androidx.annotation.NonNull;
++import androidx.recyclerview.widget.RecyclerView;
++
++import java.util.List;
++
++public class homeAdapter extends RecyclerView.Adapter<homeAdapter.ViewHolder> {
++
++    Context context;
++    List<homeVerModel> list;
++
++    public homeAdapter(Context context, List<homeVerModel> list) {
++        this.context = context;
++        this.list = list;
++    }
++
++    @NonNull
++    @Override
++    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
++        return new ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.home_vertical,parent,false));
++    }
++
++    @Override
++    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
++        holder.imageView.setImageResource(list.get(position).getImage());
++        holder.sellerName.setText(list.get(position).getSellerName());
++    }
++
++    @Override
++    public int getItemCount() {
++        return list.size();
++    }
++
++    public class ViewHolder extends RecyclerView.ViewHolder{
++
++        ImageView imageView;
++        TextView sellerName;
++
++        public ViewHolder(@NonNull View itemView) {
++            super(itemView);
++
++            imageView = itemView.findViewById(R.id.imagehomeview);
++            sellerName = itemView.findViewById(R.id.sellername);
++
++        }
++    }
++}
+Index: app/src/main/java/com/example/cake_house/homeVerModel.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/cake_house/homeVerModel.java b/app/src/main/java/com/example/cake_house/homeVerModel.java
+new file mode 100644
+--- /dev/null	(date 1652001993668)
++++ b/app/src/main/java/com/example/cake_house/homeVerModel.java	(date 1652001993668)
+@@ -0,0 +1,20 @@
++package com.example.cake_house;
++
++public class homeVerModel {
++
++    int image;
++    String sellerName;
++
++    public homeVerModel(int image, String sellerName) {
++        this.image = image;
++        this.sellerName = sellerName;
++    }
++
++    public int getImage() {
++        return image;
++    }
++
++    public String getSellerName() {
++        return sellerName;
++    }
++}
+\ No newline at end of file
+Index: app/src/main/java/com/example/cake_house/homeFragment.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/cake_house/homeFragment.java b/app/src/main/java/com/example/cake_house/homeFragment.java
+new file mode 100644
+--- /dev/null	(date 1652013705488)
++++ b/app/src/main/java/com/example/cake_house/homeFragment.java	(date 1652013705488)
+@@ -0,0 +1,41 @@
++package com.example.cake_house;
++
++import android.os.Bundle;
++import android.view.LayoutInflater;
++import android.view.View;
++import android.view.ViewGroup;
++
++import androidx.annotation.NonNull;
++import androidx.fragment.app.Fragment;
++import androidx.recyclerview.widget.LinearLayoutManager;
++import androidx.recyclerview.widget.RecyclerView;
++
++import java.util.ArrayList;
++import java.util.List;
++
++
++public class homeFragment extends Fragment {
++
++    RecyclerView homeVerticalrec;
++    List<homeVerModel> homeVerModelList;
++    homeAdapter homeAdapter;
++
++    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
++
++        View root = inflater.inflate(R.layout.activity_home,container,false);
++
++        homeVerticalrec = root.findViewById(R.id.home_ver);
++
++        homeVerModelList = new ArrayList<>();
++        homeVerModelList.add(new homeVerModel(R.drawable.cake , "Perera & Sons"));
++
++        homeAdapter  = new homeAdapter(getActivity(), homeVerModelList);
++
++        homeVerticalrec.setAdapter(homeAdapter);
++        homeVerticalrec.setLayoutManager(new LinearLayoutManager(getActivity(),RecyclerView.VERTICAL,false));
++        homeVerticalrec.setHasFixedSize(true);
++        homeVerticalrec.setNestedScrollingEnabled(false);
++
++        return root;
++    }
++}
+Index: app/src/main/res/layout/activity_home.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/activity_home.xml b/app/src/main/res/layout/activity_home.xml
+new file mode 100644
+--- /dev/null	(date 1652010701837)
++++ b/app/src/main/res/layout/activity_home.xml	(date 1652010701837)
+@@ -0,0 +1,28 @@
++<?xml version="1.0" encoding="utf-8"?>
++<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    xmlns:tools="http://schemas.android.com/tools"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    tools:context=".home">
++
++    <LinearLayout
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content">
++
++        <androidx.recyclerview.widget.RecyclerView
++            android:id="@+id/home_ver"
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content"
++            android:layout_margin="12dp"
++            android:layout_marginTop="8dp"
++            app:layout_constraintBottom_toBottomOf="parent"
++            app:layout_constraintEnd_toEndOf="parent"
++            app:layout_constraintStart_toStartOf="parent"
++            app:layout_constraintTop_toTopOf="parent">
++
++
++        </androidx.recyclerview.widget.RecyclerView>
++    </LinearLayout>
++
++</androidx.core.widget.NestedScrollView>
+\ No newline at end of file
+Index: app/src/main/res/layout/activity_cakeview.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/activity_cakeview.xml b/app/src/main/res/layout/activity_cakeview.xml
+new file mode 100644
+--- /dev/null	(date 1651998154088)
++++ b/app/src/main/res/layout/activity_cakeview.xml	(date 1651998154088)
+@@ -0,0 +1,220 @@
++<?xml version="1.0" encoding="utf-8"?>
++<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    xmlns:tools="http://schemas.android.com/tools"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    tools:context=".cakeViewActivity">
++
++    <LinearLayout
++        android:layout_width="match_parent"
++        android:layout_height="match_parent"
++        android:orientation="vertical"
++        app:layout_constraintBottom_toBottomOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toTopOf="parent">
++
++        <ScrollView
++            android:layout_width="match_parent"
++            android:layout_height="match_parent">
++
++            <LinearLayout
++                android:layout_width="match_parent"
++                android:layout_height="wrap_content"
++                android:orientation="vertical">
++
++                <TextView
++                    android:id="@+id/textView13"
++                    android:layout_width="match_parent"
++                    android:layout_height="wrap_content"
++                    android:layout_marginLeft="40dp"
++                    android:layout_marginTop="24dp"
++                    android:layout_marginRight="40dp"
++                    android:text="Perera"
++                    android:textColor="#000000"
++                    android:textColorHint="#000000"
++                    android:textSize="18dp"
++                    android:textStyle="bold" />
++
++                <ImageView
++                    android:id="@+id/imageView"
++                    android:layout_width="match_parent"
++                    android:layout_height="330dp"
++                    android:layout_marginLeft="18dp"
++                    android:layout_marginTop="18dp"
++                    android:layout_marginRight="18dp"
++                    android:src="@drawable/cake" />
++
++                <LinearLayout
++                    android:layout_width="match_parent"
++                    android:layout_height="wrap_content"
++                    android:orientation="horizontal">
++
++                    <androidx.cardview.widget.CardView
++                        android:layout_width="match_parent"
++                        android:layout_height="wrap_content"
++                        android:layout_marginLeft="18dp"
++                        android:layout_marginTop="18dp"
++                        android:layout_marginRight="18dp"
++                        app:cardBackgroundColor="#FBCDEE"
++                        app:cardCornerRadius="25dp">
++
++                        <LinearLayout
++                            android:layout_width="match_parent"
++                            android:layout_height="wrap_content"
++                            android:orientation="vertical">
++
++                            <LinearLayout
++                                android:layout_width="match_parent"
++                                android:layout_height="wrap_content"
++                                android:layout_marginTop="16dp"
++                                android:orientation="horizontal">
++
++                                <Space
++                                    android:layout_width="wrap_content"
++                                    android:layout_height="wrap_content"
++                                    android:layout_weight="1" />
++
++                                <TextView
++                                    android:id="@+id/textView14"
++                                    android:layout_width="wrap_content"
++                                    android:layout_height="wrap_content"
++                                    android:text="Cake Name"
++                                    android:textColor="#000000"
++                                    android:textSize="16dp"
++                                    android:textStyle="bold" />
++
++                                <Space
++                                    android:layout_width="wrap_content"
++                                    android:layout_height="wrap_content"
++                                    android:layout_weight="1" />
++
++                            </LinearLayout>
++
++                            <LinearLayout
++                                android:layout_width="match_parent"
++                                android:layout_height="wrap_content"
++                                android:orientation="horizontal">
++
++                                <Space
++                                    android:layout_width="wrap_content"
++                                    android:layout_height="wrap_content"
++                                    android:layout_weight="1" />
++
++                                <TextView
++                                    android:id="@+id/textView17"
++                                    android:layout_width="wrap_content"
++                                    android:layout_height="wrap_content"
++                                    android:layout_weight="1"
++                                    android:text="Cake Type" />
++
++                            </LinearLayout>
++
++                            <LinearLayout
++                                android:layout_width="match_parent"
++                                android:layout_height="wrap_content"
++                                android:layout_weight="0"
++                                android:orientation="horizontal"
++                                android:padding="16dp">
++
++                                <TextView
++                                    android:id="@+id/textView18"
++                                    android:layout_width="wrap_content"
++                                    android:layout_height="wrap_content"
++                                    android:layout_weight="1"
++                                    android:text="Price (1Kg)"
++                                    android:textColor="#000000"
++                                    android:textStyle="bold" />
++
++                                <TextView
++                                    android:id="@+id/textView19"
++                                    android:layout_width="wrap_content"
++                                    android:layout_height="wrap_content"
++                                    android:layout_weight="1"
++                                    android:text="LKR 1500"
++                                    android:textAlignment="textEnd" />
++                            </LinearLayout>
++
++                            <LinearLayout
++                                android:layout_width="match_parent"
++                                android:layout_height="match_parent"
++                                android:layout_weight="0"
++                                android:orientation="horizontal"
++                                android:padding="16dp">
++
++                                <TextView
++                                    android:id="@+id/textView29"
++                                    android:layout_width="wrap_content"
++                                    android:layout_height="wrap_content"
++                                    android:layout_weight="1"
++                                    android:text="Flavours"
++                                    android:textColor="#000000"
++                                    android:textStyle="bold" />
++
++                                <TextView
++                                    android:id="@+id/textView20"
++                                    android:layout_width="wrap_content"
++                                    android:layout_height="wrap_content"
++                                    android:layout_weight="1"
++                                    android:text="Chocolate, Vanila"
++                                    android:textAlignment="textEnd" />
++                            </LinearLayout>
++
++                            <LinearLayout
++                                android:layout_width="match_parent"
++                                android:layout_height="match_parent"
++                                android:orientation="horizontal"
++                                android:padding="16dp">
++
++                                <AutoCompleteTextView
++                                    android:id="@+id/autoCompleteTextView"
++                                    android:layout_width="wrap_content"
++                                    android:layout_height="wrap_content"
++                                    android:layout_weight="1"
++                                    android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
++                                    android:textSize="14dp" />
++                            </LinearLayout>
++
++                        </LinearLayout>
++
++                    </androidx.cardview.widget.CardView>
++
++                </LinearLayout>
++
++                <LinearLayout
++                    android:layout_width="match_parent"
++                    android:layout_height="wrap_content"
++                    android:orientation="horizontal">
++
++                    <Space
++                        android:layout_width="wrap_content"
++                        android:layout_height="wrap_content"
++                        android:layout_weight="1" />
++
++                    <Button
++                        android:id="@+id/ordernowbtn"
++                        android:layout_width="wrap_content"
++                        android:layout_height="wrap_content"
++                        android:layout_marginTop="24dp"
++                        android:layout_marginBottom="12dp"
++                        android:layout_weight="1"
++                        android:backgroundTint="#A885DA"
++                        android:paddingTop="16dp"
++                        android:paddingBottom="16dp"
++                        android:text="Order Now"
++                        android:textColor="#51357E"
++                        android:textSize="16dp"
++                        app:cornerRadius="15dp" />
++
++                    <Space
++                        android:layout_width="wrap_content"
++                        android:layout_height="wrap_content"
++                        android:layout_weight="1" />
++                </LinearLayout>
++
++            </LinearLayout>
++        </ScrollView>
++
++    </LinearLayout>
++</androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
+Index: app/src/main/java/com/example/cake_house/cakeViewActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/cake_house/cakeViewActivity.java b/app/src/main/java/com/example/cake_house/cakeViewActivity.java
+new file mode 100644
+--- /dev/null	(date 1652002298677)
++++ b/app/src/main/java/com/example/cake_house/cakeViewActivity.java	(date 1652002298677)
+@@ -0,0 +1,31 @@
++package com.example.cake_house;
++
++import androidx.appcompat.app.AppCompatActivity;
++
++import android.content.Intent;
++import android.os.Bundle;
++import android.view.View;
++import android.widget.Button;
++
++       public class cakeViewActivity extends AppCompatActivity {
++
++    @Override
++    protected void onCreate(Bundle savedInstanceState) {
++        super.onCreate(savedInstanceState);
++        setContentView(R.layout.activity_cakeview);
++
++        Button button = (Button) findViewById(R.id.ordernowbtn);
++
++        button.setOnClickListener(new View.OnClickListener() {
++
++            @Override
++
++
++            public void onClick(View v) {
++
++                Intent intent = new Intent(cakeViewActivity.this, postActivity.class);
++                startActivity(intent);
++            }
++        });
++    }
++}
+\ No newline at end of file
+Index: .idea/deploymentTargetDropDown.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"deploymentTargetDropDown\">\n    <targetSelectedWithDropDown>\n      <Target>\n        <type value=\"QUICK_BOOT_TARGET\" />\n        <deviceKey>\n          <Key>\n            <type value=\"VIRTUAL_DEVICE_PATH\" />\n            <value value=\"C:\\Users\\Chanaka\\.android\\avd\\Pixel_4_XL_API_28.avd\" />\n          </Key>\n        </deviceKey>\n      </Target>\n    </targetSelectedWithDropDown>\n    <timeTargetWasSelectedWithDropDown value=\"2022-05-08T05:13:56.171483800Z\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/deploymentTargetDropDown.xml b/.idea/deploymentTargetDropDown.xml
+--- a/.idea/deploymentTargetDropDown.xml	(revision 0e856b5037a6e56dead0b41c50b89f30241fc868)
++++ b/.idea/deploymentTargetDropDown.xml	(date 1652002501204)
+@@ -7,11 +7,11 @@
+         <deviceKey>
+           <Key>
+             <type value="VIRTUAL_DEVICE_PATH" />
+-            <value value="C:\Users\Chanaka\.android\avd\Pixel_4_XL_API_28.avd" />
++            <value value="$USER_HOME$/.android/avd/Pixel_4a_API_30.avd" />
+           </Key>
+         </deviceKey>
+       </Target>
+     </targetSelectedWithDropDown>
+-    <timeTargetWasSelectedWithDropDown value="2022-05-08T05:13:56.171483800Z" />
++    <timeTargetWasSelectedWithDropDown value="2022-05-08T09:34:55.710661Z" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: app/build.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>plugins {\n    id 'com.android.application'\n}\n\nandroid {\n    compileSdk 32\n\n    defaultConfig {\n        applicationId \"com.example.cake_house\"\n        minSdk 21\n        targetSdk 32\n        versionCode 1\n        versionName \"1.0\"\n\n        testInstrumentationRunner \"androidx.test.runner.AndroidJUnitRunner\"\n    }\n\n    buildTypes {\n        release {\n            minifyEnabled false\n            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'\n        }\n    }\n    compileOptions {\n        sourceCompatibility JavaVersion.VERSION_1_8\n        targetCompatibility JavaVersion.VERSION_1_8\n    }\n}\n\ndependencies {\n\n    implementation 'androidx.appcompat:appcompat:1.4.1'\n    implementation 'com.google.android.material:material:1.5.0'\n    implementation 'androidx.constraintlayout:constraintlayout:2.1.3'\n    testImplementation 'junit:junit:4.13.2'\n    androidTestImplementation 'androidx.test.ext:junit:1.1.3'\n    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/build.gradle b/app/build.gradle
+--- a/app/build.gradle	(revision 0e856b5037a6e56dead0b41c50b89f30241fc868)
++++ b/app/build.gradle	(date 1652015257280)
+@@ -1,5 +1,6 @@
+ plugins {
+     id 'com.android.application'
++    id 'com.google.gms.google-services'
+ }
+ 
+ android {
+@@ -32,6 +33,11 @@
+     implementation 'androidx.appcompat:appcompat:1.4.1'
+     implementation 'com.google.android.material:material:1.5.0'
+     implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
++    implementation 'androidx.recyclerview:recyclerview:1.3.0-alpha02'
++    implementation 'androidx.cardview:cardview:1.0.0'
++    implementation 'com.google.firebase:firebase-auth:21.0.3'
++    implementation 'com.google.firebase:firebase-firestore:24.1.2'
++    implementation 'com.google.firebase:firebase-storage:20.0.1'
+     testImplementation 'junit:junit:4.13.2'
+     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+Index: app/src/test/java/com/example/cake_house/Nonnull.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/test/java/com/example/cake_house/Nonnull.java b/app/src/test/java/com/example/cake_house/Nonnull.java
+new file mode 100644
+--- /dev/null	(date 1652002359385)
++++ b/app/src/test/java/com/example/cake_house/Nonnull.java	(date 1652002359385)
+@@ -0,0 +1,2 @@
++package com.example.cake_house;
++
+Index: .idea/compiler.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/compiler.xml b/.idea/compiler.xml
+new file mode 100644
+--- /dev/null	(date 1651997718263)
++++ b/.idea/compiler.xml	(date 1651997718263)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="CompilerConfiguration">
++    <bytecodeTargetLevel target="11" />
++  </component>
++</project>
+\ No newline at end of file
+Index: app/src/main/res/layout/home_vertical.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/home_vertical.xml b/app/src/main/res/layout/home_vertical.xml
+new file mode 100644
+--- /dev/null	(date 1652009365221)
++++ b/app/src/main/res/layout/home_vertical.xml	(date 1652009365221)
+@@ -0,0 +1,66 @@
++<?xml version="1.0" encoding="utf-8"?>
++<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:tools="http://schemas.android.com/tools"
++    android:layout_width="match_parent"
++    android:layout_height="wrap_content"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    android:layout_margin="12dp"
++    app:cardCornerRadius="10dp"
++    app:cardElevation="4dp">
++
++    <androidx.constraintlayout.widget.ConstraintLayout
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        >
++
++        <androidx.constraintlayout.widget.ConstraintLayout
++            android:id="@+id/constraintLayout2"
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content"
++            app:layout_constraintBottom_toBottomOf="parent"
++            app:layout_constraintEnd_toEndOf="parent"
++            app:layout_constraintStart_toStartOf="parent"
++            app:layout_constraintTop_toTopOf="parent">
++
++            <ImageView
++                android:id="@+id/imagehomeview"
++                android:layout_width="match_parent"
++                android:layout_height="330dp"
++                android:scaleType="fitXY"
++                android:src="@drawable/cake"
++                app:layout_constraintBottom_toBottomOf="parent"
++                app:layout_constraintEnd_toEndOf="parent"
++                app:layout_constraintStart_toStartOf="parent"
++                app:layout_constraintTop_toTopOf="parent" />
++
++            <TextView
++                android:id="@+id/sellername"
++                android:layout_width="match_parent"
++                android:layout_height="wrap_content"
++                android:text="Perera and Sons"
++                android:textColor="@color/black"
++                android:textSize="20dp"
++                android:textStyle="bold"
++
++                app:layout_constraintBottom_toTopOf="@+id/imagehomeview"
++                app:layout_constraintEnd_toEndOf="parent"
++                app:layout_constraintStart_toStartOf="parent"
++                app:layout_constraintTop_toTopOf="parent"/>
++
++
++
++        </androidx.constraintlayout.widget.ConstraintLayout>
++
++
++
++
++
++    </androidx.constraintlayout.widget.ConstraintLayout>
++
++
++
++
++
++</androidx.cardview.widget.CardView>
++
++
+Index: app/src/main/AndroidManifest.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\n<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\"\n    package=\"com.example.cake_house\">\n\n    <application\n        android:allowBackup=\"true\"\n        android:icon=\"@mipmap/ic_launcher\"\n        android:label=\"@string/app_name\"\n        android:roundIcon=\"@mipmap/ic_launcher_round\"\n        android:supportsRtl=\"true\"\n        android:theme=\"@style/Theme.Cake_house\">\n        <activity\n            android:name=\".Buyer_Login\"\n            android:exported=\"false\" />\n        <activity\n            android:name=\".Seller_login\"\n            android:exported=\"false\" />\n        <activity\n            android:name=\".Buyer_registation\"\n            android:exported=\"false\" />\n        <activity\n            android:name=\".Seller_registation\"\n            android:exported=\"false\" />\n        <activity\n            android:name=\".Sign_up_switch1\"\n            android:exported=\"false\" />\n        <activity\n            android:name=\".Sign_in_switch\"\n            android:exported=\"false\" />\n        <activity\n            android:name=\".MainActivity\"\n            android:exported=\"true\">\n            <intent-filter>\n                <action android:name=\"android.intent.action.MAIN\" />\n\n                <category android:name=\"android.intent.category.LAUNCHER\" />\n            </intent-filter>\n        </activity>\n    </application>\n\n</manifest>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/AndroidManifest.xml b/app/src/main/AndroidManifest.xml
+--- a/app/src/main/AndroidManifest.xml	(revision 0e856b5037a6e56dead0b41c50b89f30241fc868)
++++ b/app/src/main/AndroidManifest.xml	(date 1652001882144)
+@@ -10,6 +10,15 @@
+         android:supportsRtl="true"
+         android:theme="@style/Theme.Cake_house">
+         <activity
++            android:name=".postActivity"
++            android:exported="false" />
++        <activity
++            android:name=".home"
++            android:exported="false" />
++        <activity
++            android:name=".cakeViewActivity"
++            android:exported="false" />
++        <activity
+             android:name=".Buyer_Login"
+             android:exported="false" />
+         <activity
+Index: .idea/gradle.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/gradle.xml b/.idea/gradle.xml
+new file mode 100644
+--- /dev/null	(date 1651998043830)
++++ b/.idea/gradle.xml	(date 1651998043830)
+@@ -0,0 +1,20 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="GradleMigrationSettings" migrationVersion="1" />
++  <component name="GradleSettings">
++    <option name="linkedExternalProjectsSettings">
++      <GradleProjectSettings>
++        <option name="testRunner" value="GRADLE" />
++        <option name="distributionType" value="DEFAULT_WRAPPED" />
++        <option name="externalProjectPath" value="$PROJECT_DIR$" />
++        <option name="modules">
++          <set>
++            <option value="$PROJECT_DIR$" />
++            <option value="$PROJECT_DIR$/app" />
++          </set>
++        </option>
++        <option name="resolveModulePerSourceSet" value="false" />
++      </GradleProjectSettings>
++    </option>
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"ExternalStorageConfigurationManager\" enabled=\"true\" />\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_11\" project-jdk-name=\"11\" project-jdk-type=\"JavaSDK\">\n    <output url=\"file://$PROJECT_DIR$/out\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision 0e856b5037a6e56dead0b41c50b89f30241fc868)
++++ b/.idea/misc.xml	(date 1652010701910)
+@@ -1,7 +1,22 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
++  <component name="DesignSurface">
++    <option name="filePathToZoomLevelMap">
++      <map>
++        <entry key="app/src/main/res/drawable/box.xml" value="0.1345" />
++        <entry key="app/src/main/res/drawable/cake.xml" value="0.1345" />
++        <entry key="app/src/main/res/drawable/inputbox.xml" value="0.1345" />
++        <entry key="app/src/main/res/layout/activity_buyer_registation.xml" value="0.14583333333333334" />
++        <entry key="app/src/main/res/layout/activity_cakeview.xml" value="0.30512820512820515" />
++        <entry key="app/src/main/res/layout/activity_home.xml" value="0.1" />
++        <entry key="app/src/main/res/layout/activity_post.xml" value="0.1" />
++        <entry key="app/src/main/res/layout/activity_seller_registation.xml" value="0.1" />
++        <entry key="app/src/main/res/layout/home_vertical.xml" value="0.1" />
++      </map>
++    </option>
++  </component>
+   <component name="ExternalStorageConfigurationManager" enabled="true" />
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11" project-jdk-type="JavaSDK">
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+     <output url="file://$PROJECT_DIR$/out" />
+   </component>
+ </project>
+\ No newline at end of file

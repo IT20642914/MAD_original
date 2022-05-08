@@ -1,0 +1,126 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.cake_house"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+8-->/Users/k.p.c.perera/Desktop/suuMad/app/src/main/AndroidManifest.xml
+9        android:targetSdkVersion="32" />
+9-->/Users/k.p.c.perera/Desktop/suuMad/app/src/main/AndroidManifest.xml
+10
+11    <application
+11-->/Users/k.p.c.perera/Desktop/suuMad/app/src/main/AndroidManifest.xml:5:5-48:19
+12        android:allowBackup="true"
+12-->/Users/k.p.c.perera/Desktop/suuMad/app/src/main/AndroidManifest.xml:6:9-35
+13        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+13-->[androidx.core:core:1.7.0] /Users/k.p.c.perera/.gradle/caches/transforms-3/b9e4376e452ce4f1a2bbb1fc4b534124/transformed/core-1.7.0/AndroidManifest.xml:24:18-86
+14        android:debuggable="true"
+15        android:icon="@mipmap/ic_launcher"
+15-->/Users/k.p.c.perera/Desktop/suuMad/app/src/main/AndroidManifest.xml:7:9-43
+16        android:label="@string/app_name"
+16-->/Users/k.p.c.perera/Desktop/suuMad/app/src/main/AndroidManifest.xml:8:9-41
+17        android:roundIcon="@mipmap/ic_launcher_round"
+17-->/Users/k.p.c.perera/Desktop/suuMad/app/src/main/AndroidManifest.xml:9:9-54
+18        android:supportsRtl="true"
+18-->/Users/k.p.c.perera/Desktop/suuMad/app/src/main/AndroidManifest.xml:10:9-35
+19        android:testOnly="true"
+20        android:theme="@style/Theme.Cake_house" >
+20-->/Users/k.p.c.perera/Desktop/suuMad/app/src/main/AndroidManifest.xml:11:9-48
+21        <activity
+21-->/Users/k.p.c.perera/Desktop/suuMad/app/src/main/AndroidManifest.xml:12:9-14:40
+22            android:name="com.example.cake_house.postActivity"
+22-->/Users/k.p.c.perera/Desktop/suuMad/app/src/main/AndroidManifest.xml:13:13-41
+23            android:exported="false" />
+23-->/Users/k.p.c.perera/Desktop/suuMad/app/src/main/AndroidManifest.xml:14:13-37
+24        <activity
+24-->/Users/k.p.c.perera/Desktop/suuMad/app/src/main/AndroidManifest.xml:15:9-17:40
+25            android:name="com.example.cake_house.home"
+25-->/Users/k.p.c.perera/Desktop/suuMad/app/src/main/AndroidManifest.xml:16:13-33
+26            android:exported="false" />
+26-->/Users/k.p.c.perera/Desktop/suuMad/app/src/main/AndroidManifest.xml:17:13-37
+27        <activity
+27-->/Users/k.p.c.perera/Desktop/suuMad/app/src/main/AndroidManifest.xml:18:9-20:40
+28            android:name="com.example.cake_house.cakeViewActivity"
+28-->/Users/k.p.c.perera/Desktop/suuMad/app/src/main/AndroidManifest.xml:19:13-45
+29            android:exported="false" />
+29-->/Users/k.p.c.perera/Desktop/suuMad/app/src/main/AndroidManifest.xml:20:13-37
+30        <activity
+30-->/Users/k.p.c.perera/Desktop/suuMad/app/src/main/AndroidManifest.xml:21:9-23:40
+31            android:name="com.example.cake_house.Buyer_Login"
+31-->/Users/k.p.c.perera/Desktop/suuMad/app/src/main/AndroidManifest.xml:22:13-40
+32            android:exported="false" />
+32-->/Users/k.p.c.perera/Desktop/suuMad/app/src/main/AndroidManifest.xml:23:13-37
+33        <activity
+33-->/Users/k.p.c.perera/Desktop/suuMad/app/src/main/AndroidManifest.xml:24:9-26:40
+34            android:name="com.example.cake_house.Seller_login"
+34-->/Users/k.p.c.perera/Desktop/suuMad/app/src/main/AndroidManifest.xml:25:13-41
+35            android:exported="false" />
+35-->/Users/k.p.c.perera/Desktop/suuMad/app/src/main/AndroidManifest.xml:26:13-37
+36        <activity
+36-->/Users/k.p.c.perera/Desktop/suuMad/app/src/main/AndroidManifest.xml:27:9-29:40
+37            android:name="com.example.cake_house.Buyer_registation"
+37-->/Users/k.p.c.perera/Desktop/suuMad/app/src/main/AndroidManifest.xml:28:13-46
+38            android:exported="false" />
+38-->/Users/k.p.c.perera/Desktop/suuMad/app/src/main/AndroidManifest.xml:29:13-37
+39        <activity
+39-->/Users/k.p.c.perera/Desktop/suuMad/app/src/main/AndroidManifest.xml:30:9-32:40
+40            android:name="com.example.cake_house.Seller_registation"
+40-->/Users/k.p.c.perera/Desktop/suuMad/app/src/main/AndroidManifest.xml:31:13-47
+41            android:exported="false" />
+41-->/Users/k.p.c.perera/Desktop/suuMad/app/src/main/AndroidManifest.xml:32:13-37
+42        <activity
+42-->/Users/k.p.c.perera/Desktop/suuMad/app/src/main/AndroidManifest.xml:33:9-35:40
+43            android:name="com.example.cake_house.Sign_up_switch1"
+43-->/Users/k.p.c.perera/Desktop/suuMad/app/src/main/AndroidManifest.xml:34:13-44
+44            android:exported="false" />
+44-->/Users/k.p.c.perera/Desktop/suuMad/app/src/main/AndroidManifest.xml:35:13-37
+45        <activity
+45-->/Users/k.p.c.perera/Desktop/suuMad/app/src/main/AndroidManifest.xml:36:9-38:40
+46            android:name="com.example.cake_house.Sign_in_switch"
+46-->/Users/k.p.c.perera/Desktop/suuMad/app/src/main/AndroidManifest.xml:37:13-43
+47            android:exported="false" />
+47-->/Users/k.p.c.perera/Desktop/suuMad/app/src/main/AndroidManifest.xml:38:13-37
+48        <activity
+48-->/Users/k.p.c.perera/Desktop/suuMad/app/src/main/AndroidManifest.xml:39:9-47:20
+49            android:name="com.example.cake_house.MainActivity"
+49-->/Users/k.p.c.perera/Desktop/suuMad/app/src/main/AndroidManifest.xml:40:13-41
+50            android:exported="true" >
+50-->/Users/k.p.c.perera/Desktop/suuMad/app/src/main/AndroidManifest.xml:41:13-36
+51            <intent-filter>
+51-->/Users/k.p.c.perera/Desktop/suuMad/app/src/main/AndroidManifest.xml:42:13-46:29
+52                <action android:name="android.intent.action.MAIN" />
+52-->/Users/k.p.c.perera/Desktop/suuMad/app/src/main/AndroidManifest.xml:43:17-69
+52-->/Users/k.p.c.perera/Desktop/suuMad/app/src/main/AndroidManifest.xml:43:25-66
+53
+54                <category android:name="android.intent.category.LAUNCHER" />
+54-->/Users/k.p.c.perera/Desktop/suuMad/app/src/main/AndroidManifest.xml:45:17-77
+54-->/Users/k.p.c.perera/Desktop/suuMad/app/src/main/AndroidManifest.xml:45:27-74
+55            </intent-filter>
+56        </activity>
+57
+58        <provider
+58-->[androidx.emoji2:emoji2:1.0.0] /Users/k.p.c.perera/.gradle/caches/transforms-3/2c96a293c0a835e94af1ddc4d74ff22d/transformed/emoji2-1.0.0/AndroidManifest.xml:26:9-34:20
+59            android:name="androidx.startup.InitializationProvider"
+59-->[androidx.emoji2:emoji2:1.0.0] /Users/k.p.c.perera/.gradle/caches/transforms-3/2c96a293c0a835e94af1ddc4d74ff22d/transformed/emoji2-1.0.0/AndroidManifest.xml:27:13-67
+60            android:authorities="com.example.cake_house.androidx-startup"
+60-->[androidx.emoji2:emoji2:1.0.0] /Users/k.p.c.perera/.gradle/caches/transforms-3/2c96a293c0a835e94af1ddc4d74ff22d/transformed/emoji2-1.0.0/AndroidManifest.xml:28:13-68
+61            android:exported="false" >
+61-->[androidx.emoji2:emoji2:1.0.0] /Users/k.p.c.perera/.gradle/caches/transforms-3/2c96a293c0a835e94af1ddc4d74ff22d/transformed/emoji2-1.0.0/AndroidManifest.xml:29:13-37
+62            <meta-data
+62-->[androidx.emoji2:emoji2:1.0.0] /Users/k.p.c.perera/.gradle/caches/transforms-3/2c96a293c0a835e94af1ddc4d74ff22d/transformed/emoji2-1.0.0/AndroidManifest.xml:31:13-33:52
+63                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+63-->[androidx.emoji2:emoji2:1.0.0] /Users/k.p.c.perera/.gradle/caches/transforms-3/2c96a293c0a835e94af1ddc4d74ff22d/transformed/emoji2-1.0.0/AndroidManifest.xml:32:17-75
+64                android:value="androidx.startup" />
+64-->[androidx.emoji2:emoji2:1.0.0] /Users/k.p.c.perera/.gradle/caches/transforms-3/2c96a293c0a835e94af1ddc4d74ff22d/transformed/emoji2-1.0.0/AndroidManifest.xml:33:17-49
+65            <meta-data
+65-->[androidx.lifecycle:lifecycle-process:2.4.0] /Users/k.p.c.perera/.gradle/caches/transforms-3/bdba8a1b7f77d959878d5a52670cf96f/transformed/lifecycle-process-2.4.0/AndroidManifest.xml:31:13-33:52
+66                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+66-->[androidx.lifecycle:lifecycle-process:2.4.0] /Users/k.p.c.perera/.gradle/caches/transforms-3/bdba8a1b7f77d959878d5a52670cf96f/transformed/lifecycle-process-2.4.0/AndroidManifest.xml:32:17-78
+67                android:value="androidx.startup" />
+67-->[androidx.lifecycle:lifecycle-process:2.4.0] /Users/k.p.c.perera/.gradle/caches/transforms-3/bdba8a1b7f77d959878d5a52670cf96f/transformed/lifecycle-process-2.4.0/AndroidManifest.xml:33:17-49
+68        </provider>
+69    </application>
+70
+71</manifest>
