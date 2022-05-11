@@ -72,14 +72,29 @@
                         android:layout_weight="2"
                         android:src="@drawable/profile"></de.hdodenhof.circleimageview.CircleImageView>
 
-                    <ImageButton
-                        android:id="@+id/selleredit2"
-
-                        android:layout_width="15dp"
-                        android:layout_height="32dp"
+                    <LinearLayout
+                        android:layout_width="29dp"
+                        android:layout_height="match_parent"
                         android:layout_weight="3"
-                        app:srcCompat="@drawable/ic_editbtn"
-                        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+                        android:orientation="vertical">
+
+                        <ImageButton
+                            android:id="@+id/selleredit2"
+
+                            android:layout_width="match_parent"
+                            android:layout_height="32dp"
+                            android:layout_weight="3"
+                            app:srcCompat="@drawable/ic_editbtn"
+                            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+                        <ImageButton
+                            android:id="@+id/camera"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="3"
+                            app:srcCompat="@drawable/ic_order"
+                            tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+                    </LinearLayout>
 
                     <Space
                         android:layout_width="23dp"
@@ -103,7 +118,9 @@
                         android:id="@+id/shopname"
                         android:layout_width="124dp"
                         android:layout_height="match_parent"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:text="shop name"
+                        android:textAlignment="center" />
 
                     <ImageButton
                         android:id="@+id/selleredit"
@@ -178,23 +195,18 @@
 
                                 <ImageView
                                     android:id="@+id/imageView4"
-                                    android:layout_width="1dp"
+                                    android:layout_width="82dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="1"
                                     app:srcCompat="@drawable/ic_location" />
 
                                 <TextView
-                                    android:id="@+id/textView12"
-                                    android:layout_width="97dp"
+                                    android:id="@+id/addressid"
+                                    android:layout_width="212dp"
                                     android:layout_height="match_parent"
-                                    android:layout_weight="1"
+                                    android:layout_weight=".2"
                                     android:text="From" />
 
-                                <TextView
-                                    android:id="@+id/textView13"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="1" />
                             </LinearLayout>
 
                             <LinearLayout
@@ -208,20 +220,15 @@
                                     android:layout_width="3dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="1"
-                                    app:srcCompat="@drawable/ic_member" />
+                                    app:srcCompat="@drawable/ic_contactnu" />
 
                                 <TextView
-                                    android:id="@+id/textView10"
-                                    android:layout_width="92dp"
+                                    android:id="@+id/Contactid"
+                                    android:layout_width="198dp"
                                     android:layout_height="match_parent"
-                                    android:layout_weight="1"
-                                    android:text="Member since" />
+                                    android:layout_weight=".2"
+                                    android:text="Contaat" />
 
-                                <TextView
-                                    android:id="@+id/textView11"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="1" />
                             </LinearLayout>
 
                             <LinearLayout
@@ -232,23 +239,19 @@
 
                                 <ImageView
                                     android:id="@+id/imageView6"
-                                    android:layout_width="7dp"
+                                    android:layout_width="76dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
-                                    app:srcCompat="@drawable/ic_lastseen" />
+                                    app:srcCompat="@drawable/ic_email" />
 
                                 <TextView
-                                    android:id="@+id/textView5"
-                                    android:layout_width="97dp"
+                                    android:id="@+id/emailid"
+                                    android:layout_width="209dp"
                                     android:layout_height="match_parent"
-                                    android:layout_weight="1"
-                                    android:text="Lastseen" />
+                                    android:layout_weight=".1"
+                                    android:text="Email" />
 
-                                <TextView
-                                    android:id="@+id/textView6"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="1" />
+
 
                             </LinearLayout>
 
@@ -266,17 +269,12 @@
                                     app:srcCompat="@drawable/ic_order" />
 
                                 <TextView
-                                    android:id="@+id/textView7"
-                                    android:layout_width="125dp"
+                                    android:id="@+id/oderid"
+                                    android:layout_width="209dp"
                                     android:layout_height="match_parent"
-                                    android:layout_weight="1"
+                                    android:layout_weight=".2"
                                     android:text="Orders" />
 
-                                <TextView
-                                    android:id="@+id/textView8"
-                                    android:layout_width="91dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="1" />
                             </LinearLayout>
 
                         </LinearLayout>
@@ -326,16 +324,16 @@
 
                     <androidx.cardview.widget.CardView
                         android:layout_width="221dp"
-                        android:layout_height="78dp"
+                        android:layout_height="match_parent"
                         android:layout_weight="1"
                         app:cardBackgroundColor="#FFDDE2"
                         app:cardCornerRadius="12dp"
                         app:cardElevation="12dp">
 
                         <TextView
-                            android:id="@+id/Description"
+                            android:id="@+id/Descriptionid"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent" />
+                            android:layout_height="91dp" />
                     </androidx.cardview.widget.CardView>
 
                     <Space
@@ -481,6 +479,33 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:padding="15dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <Space
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <Button
+                        android:id="@+id/button2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:backgroundTint="#BDB2FF"
+                        app:cornerRadius="30dp"
+                        android:text="Logout"
+                        android:onClick="logout"/>
+
+                    <Space
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
                 </LinearLayout>
 
             </LinearLayout>
