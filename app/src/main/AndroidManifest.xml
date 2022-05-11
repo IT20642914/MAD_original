@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.cake_house">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+ <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,6 +13,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Cake_house">
+        <activity
+            android:name=".BuyerViewSeller"
+            android:exported="false" />
+        <activity
+            android:name=".updateseller"
+            android:exported="false" />
+        <activity
+            android:name=".myselling"
+            android:exported="false" />
+        <activity
+            android:name=".CustomOrder"
+            android:exported="false" />
+        <activity
+            android:name=".sellerprofile"
+            android:exported="false" />
         <activity
             android:name=".Buyer_Login"
             android:exported="false" />
@@ -36,6 +55,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.example.android.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"></meta-data>
+        </provider>
     </application>
 
 </manifest>

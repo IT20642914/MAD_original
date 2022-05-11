@@ -233,7 +233,7 @@
                                     android:layout_marginTop="2dp"
                                     android:background="@drawable/smallborder"
                                     android:ems="10"
-                                    android:inputType="phone"
+                                    android:inputType="textMultiLine"
                                     android:textAlignment="center" />
                             </LinearLayout>
 
@@ -248,6 +248,34 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
+                        android:layout_height="83dp"
+                        android:orientation="horizontal">
+
+                        <Space
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1" />
+
+                        <Button
+                            android:id="@+id/signupbtnseller"
+
+                            android:layout_width="280dp"
+                            android:layout_height="60dp"
+                            android:backgroundTint="#BDB2FF"
+                            app:cornerRadius="30dp"
+                            android:text="Sign Up"
+
+                            android:textSize="18sp"
+                            />
+
+                        <Space
+                            android:layout_width="wrap_content"
+                            android:layout_height="60dp"
+                            android:layout_weight="1" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="horizontal">
 
@@ -257,7 +285,7 @@
                             android:layout_weight="1" />
 
                         <TextView
-                            android:id="@+id/LOGB"
+                            android:id="@+id/sellerloginbtn"
                             android:layout_width="317dp"
                             android:layout_height="49dp"
                             android:text="Already Registered?Login Here"
@@ -268,11 +296,13 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1" />
+
+
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="83dp"
+                        android:layout_height="match_parent"
                         android:orientation="horizontal">
 
                         <Space
@@ -280,19 +310,17 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1" />
 
-                        <Button
-                            android:id="@+id/signinbtnBuyer"
-
-                            android:layout_width="280dp"
-                            android:layout_height="60dp"
-                            android:backgroundTint="#BDB2FF"
-                            android:text="Sign Up"
-                            android:textSize="18sp"
-                            app:cornerRadius="30dp" />
+                        <ProgressBar
+                            android:id="@+id/progressBar"
+                            style="?android:attr/progressBarStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            tools:visibility="invisible" />
 
                         <Space
                             android:layout_width="wrap_content"
-                            android:layout_height="60dp"
+                            android:layout_height="wrap_content"
                             android:layout_weight="1" />
                     </LinearLayout>
 
