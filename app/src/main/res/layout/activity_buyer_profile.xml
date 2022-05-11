@@ -1,0 +1,519 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:visibility="visible"
+    tools:context=".Buyer_Profile">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="631dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:id="@+id/textView"
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:layout_weight="1"
+                        android:paddingLeft="85px"
+                        android:text="Profile"
+                        android:textColor="#000000"
+                        android:textSize="24dp" />
+
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="166dp"
+                    android:layout_marginTop="30px"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <Space
+                        android:layout_width="106dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="3" />
+
+                    <ImageView
+                        android:id="@+id/propic"
+                        android:layout_width="168dp"
+                        android:layout_height="142dp"
+                        android:layout_marginTop="24dp"
+                        android:scaleType="fitXY"
+                        app:layout_constraintBottom_toTopOf="@+id/editbtn"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.498"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView2"
+                        app:layout_constraintVertical_bias="0.0"
+                        tools:srcCompat="@drawable/ic_baseline_person_24" />
+
+                    <Space
+                        android:layout_width="23dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="25" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <Space
+                        android:layout_width="36dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:id="@+id/shopname"
+                        android:layout_width="124dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1" />
+
+                    <Space
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="41dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <Space
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <ImageButton
+                        android:id="@+id/editbtn"
+                        android:layout_width="23dp"
+                        android:layout_height="25dp"
+                        android:layout_marginBottom="16dp"
+                        android:background="@drawable/ic_baseline_edit_24"
+                        app:layout_constraintBottom_toTopOf="@+id/constraintLayout3"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.923" />
+
+                    <Space
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="362dp"
+                    android:layout_height="232dp"
+                    android:layout_marginTop="10px"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <Space
+                        android:layout_width="94dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1" />
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="371dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:backgroundTint="#FFDDE2"
+                        app:cardCornerRadius="14dp">
+
+                        <LinearLayout
+                            android:layout_width="306dp"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="15dp"
+                                android:orientation="horizontal">
+
+                                <ImageButton
+                                    android:id="@+id/imageButton3"
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:layout_marginStart="16dp"
+                                    android:background="@drawable/ic_baseline_person_24"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:layout_constraintVertical_bias="0.204" />
+
+                                <TextView
+                                    android:id="@+id/nametxt"
+                                    android:layout_width="218dp"
+                                    android:layout_height="42dp"
+                                    android:text="Your name"
+                                    android:textAlignment="viewStart"
+                                    android:textSize="20sp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintHorizontal_bias="0.82"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:layout_constraintVertical_bias="0.205" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="15dp"
+                                android:orientation="horizontal">
+
+                                <ImageButton
+                                    android:id="@+id/imageButton6"
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:layout_marginStart="16dp"
+                                    android:background="@drawable/ic_baseline_email_24"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@+id/imageButton3"
+                                    app:layout_constraintVertical_bias="0.16" />
+
+
+                                <TextView
+                                    android:id="@+id/emailtxt"
+                                    android:layout_width="218dp"
+                                    android:layout_height="44dp"
+                                    android:text="Your  email"
+                                    android:textAlignment="viewStart"
+                                    android:textSize="20sp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintHorizontal_bias="0.744"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@+id/nametxt"
+                                    app:layout_constraintVertical_bias="0.144" />
+
+                            </LinearLayout>
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="15dp"
+                                android:orientation="horizontal">
+
+                                <ImageButton
+                                    android:id="@+id/imageButton7"
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:layout_marginStart="16dp"
+                                    android:background="@drawable/ic_baseline_phone_24"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@+id/imageButton3"
+                                    app:layout_constraintVertical_bias="0.16" />
+
+
+                                <TextView
+                                    android:id="@+id/phonetxt"
+                                    android:layout_width="218dp"
+                                    android:layout_height="44dp"
+                                    android:text="Your Phone"
+                                    android:textAlignment="viewStart"
+                                    android:textSize="20sp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintHorizontal_bias="0.744"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@+id/nametxt"
+                                    app:layout_constraintVertical_bias="0.144" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="104dp"
+                                android:layout_marginTop="15dp"
+                                android:orientation="horizontal">
+
+                                <ImageButton
+                                    android:id="@+id/imageButton8"
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:layout_marginStart="16dp"
+                                    android:layout_marginBottom="92dp"
+                                    android:background="@drawable/ic_baseline_home_24"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@+id/imageButton6"
+                                    app:layout_constraintVertical_bias="0.8" />
+
+
+                                <TextView
+                                    android:id="@+id/addresstxt"
+                                    android:layout_width="213dp"
+                                    android:layout_height="44dp"
+                                    android:text="Your Address"
+                                    android:textAlignment="viewStart"
+                                    android:textSize="20sp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintHorizontal_bias="0.744"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@+id/nametxt"
+                                    app:layout_constraintVertical_bias="0.144" />
+
+                            </LinearLayout>
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="15dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/textView7"
+                                    android:layout_width="125dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:text="Orders" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <Space
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="216dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <Space
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="288dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        app:cardBackgroundColor="#FFDDE2"
+                        app:cardCornerRadius="12dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="10dp"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="45dp"
+                                android:orientation="horizontal"
+                                android:paddingRight="10dp">
+
+                                <ImageButton
+                                    android:id="@+id/imageButton9"
+                                    android:layout_width="71dp"
+                                    android:layout_height="45dp"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/ic_baseline_bookmark_border_24" />
+
+                                <Button
+                                    android:id="@+id/order_btn"
+                                    android:layout_width="297dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:backgroundTint="#EFD6D2"
+                                    android:drawablePadding="3px"
+                                    android:text="Orders"
+                                    android:textColor="#000000"
+                                    app:cornerRadius="12dp"
+                                    tools:ignore="TouchTargetSizeCheck" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:paddingRight="10dp">
+
+                                <ImageButton
+                                    android:id="@+id/imageButton10"
+                                    android:layout_width="51dp"
+                                    android:layout_height="38dp"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/ic_baseline_favorite_border_24"
+                                    />
+
+                                <Button
+                                    android:id="@+id/myselling_btn"
+                                    android:layout_width="278dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:backgroundTint="#EFD6D2"
+                                    android:drawablePadding="3px"
+                                    android:text="My Favourites"
+                                    android:textColor="#000000"
+                                    app:cornerRadius="12dp"
+                                    tools:ignore="TouchTargetSizeCheck" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:paddingRight="10dp">
+
+                                <ImageButton
+                                    android:id="@+id/imageButton11"
+                                    android:layout_width="51dp"
+                                    android:layout_height="42dp"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/ic_baseline_support_agent_24"
+                                    />
+
+                                <Button
+                                    android:id="@+id/help_btn"
+                                    android:layout_width="281dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:backgroundTint="#EFD6D2"
+                                    android:drawablePadding="3px"
+                                    android:text="Help and Support"
+                                    android:textColor="#000000"
+                                    app:cornerRadius="12dp"
+                                    tools:ignore="TouchTargetSizeCheck" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:paddingRight="10dp">
+
+                                <ImageButton
+                                    android:id="@+id/imageButton13"
+                                    android:layout_width="53dp"
+                                    android:layout_height="36dp"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/ic_baseline_person_24"
+                                    />
+
+                                <Button
+                                    android:id="@+id/notification_btn"
+                                    android:layout_width="283dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:backgroundTint="#EFD6D2"
+                                    android:drawablePadding="3px"
+                                    android:text="Join as Seller"
+                                    android:textColor="#000000"
+                                    app:cornerRadius="12dp"
+                                    tools:ignore="TouchTargetSizeCheck" />
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <Space
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:padding="15dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="15dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <Space
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <Button
+                        android:id="@+id/saveB"
+                        android:layout_width="280dp"
+                        android:layout_height="60dp"
+                        android:backgroundTint="#DE369D"
+                        android:onClick="logout"
+                        android:text="Log Out"
+                        android:textSize="18sp"
+                        app:cornerRadius="30dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.496"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/constraintLayout3"
+                        app:layout_constraintVertical_bias="0.644" />
+
+                    <Space
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            tools:visibility="visible">
+
+
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

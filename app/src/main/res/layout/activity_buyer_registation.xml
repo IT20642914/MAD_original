@@ -160,6 +160,24 @@
                                     android:textAlignment="center" />
 
                                 <TextView
+                                    android:id="@+id/ContactNo"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="2dp"
+                                    android:text="Contact Number"
+                                    android:textSize="20dp" />
+
+                                <EditText
+                                    android:id="@+id/editeContact"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="41dp"
+                                    android:layout_marginTop="2dp"
+                                    android:background="@drawable/smallborder"
+                                    android:ems="10"
+                                    android:inputType="phone"
+                                    android:textAlignment="center" />
+
+                                <TextView
                                     android:id="@+id/Password"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
@@ -198,23 +216,6 @@
                                     android:inputType="textPassword"
                                     android:textAlignment="center" />
 
-                                <TextView
-                                    android:id="@+id/ContactNo"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="2dp"
-                                    android:text="Contact Number"
-                                    android:textSize="20dp" />
-
-                                <EditText
-                                    android:id="@+id/editeContact"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="41dp"
-                                    android:layout_marginTop="2dp"
-                                    android:background="@drawable/smallborder"
-                                    android:ems="10"
-                                    android:inputType="phone"
-                                    android:textAlignment="center" />
                             </LinearLayout>
 
                         </androidx.cardview.widget.CardView>
@@ -261,7 +262,7 @@
                             android:layout_weight="1" />
 
                         <Button
-                            android:id="@+id/signinbtnBuyer"
+                            android:id="@+id/savebtn"
 
                             android:layout_width="280dp"
                             android:layout_height="60dp"
@@ -275,6 +276,30 @@
                             android:layout_height="60dp"
                             android:layout_weight="1" />
                     </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <Space
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1" />
+
+                        <ProgressBar
+                            android:id="@+id/progressBarS"
+                            style="?android:attr/progressBarStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1" />
+
+                        <Space
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1" />
+                    </LinearLayout>
+
 
                 </LinearLayout>
             </ScrollView>
